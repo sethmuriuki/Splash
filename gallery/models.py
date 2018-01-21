@@ -15,9 +15,10 @@ class tags(models.Model):
         return self.name
 
 class Gallery(models.Model):
-    image = models.ImageField(upload_to = 'galleries/', null = True)
+    image = models.ImageField(upload_to = 'photos/', null = True)
     name = models.CharField(max_length=30)
     descripton = models.TextField()
+    tags = models.ManyToManyField(tags)
     category = models.ManyToManyField(categories)
     time_uloaded = models.DateTimeField(auto_now_add=True, null=True)
     

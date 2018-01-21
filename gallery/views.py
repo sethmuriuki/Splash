@@ -12,10 +12,10 @@ def search_results(request):
 
     if 'images' in request.GET and request.GET["images"]:
         search_term = request.GET.get("images")
-        searched_galleries = Gallery.search_by_tags(search_term)
+        searched_picture = Gallery.search_by_tags(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"galleries": searched_galleries})
+        return render(request, 'search.html',{"message":message,"picture": searched_picture})
 
     else:
         message = "You haven't searched for any term"

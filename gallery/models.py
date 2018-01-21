@@ -7,3 +7,10 @@ class Gallery(models.Model):
     post = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     gallery_image = models.ImageField(upload_to = 'gallery/', null = True, blank = True)
+
+
+class categories(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name

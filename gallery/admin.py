@@ -7,3 +7,4 @@ class ArticlesAdmin(admin.ModelAdmin):
 
     
 admin.site.register(Gallery)
+admin.site.register(Category)

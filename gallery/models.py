@@ -21,3 +21,9 @@ class Gallery(models.Model):
     category = models.ManyToManyField(categories)
     time_uloaded = models.DateTimeField(auto_now_add=True, null=True)
     
+
+    @classmethod
+    def search_by_tags(cls,search_term):
+        gallery = cls.object.filter(tags__icontains=search_term)
+
+        return gallery

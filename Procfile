@@ -1,1 +1,1 @@
-web: gunicorn splash:wsgi
+web: gunicorn gallery:wsgi

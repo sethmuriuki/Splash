@@ -22,6 +22,11 @@ class Gallery(models.Model):
     category = models.ManyToManyField(categories)
     time_uloaded = models.DateTimeField(auto_now_add=True, null=True)
     
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
 
     @classmethod
     def search_by_tags(cls,search_term):

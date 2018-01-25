@@ -8,6 +8,8 @@ def images(request):
     picture = Gallery.objects.all()
     return render(request, 'index.html', {'picture':picture})
 
+
+
 def search_results(request):
 
     if 'images' in request.GET and request.GET["images"]:

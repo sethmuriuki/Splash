@@ -1,22 +1,26 @@
-{%extends 'base.html'%} {% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container">
-
-    <div class="row">
-        {% if picture%}
-        <h2>Found {{ picture|length }} of searched term {{message}}</h2>
-        {% else %}
-        <h2> Found 0 picture for the search term {{message}}</h2>
-        {% endif %}
-
-    </div>
-
-    <div class="row">
-
-        {% if picture %} {% for images in picture %}
-        <div class="col-sm-6 col-md-3">
-            <h1>{{images.tags}}</h1>
+    <section class="no-touch">
+        <div class="wrap">
+            {% if images %}
+            <p class="text-center" style="font-size:1.3em">Search Results: <span>{{images|length}}</span> found matching your search crireria</p>
+            {% for image_item in images%}
+            <a href="{% url 'myimage' image_item.id %}">
+                <div class="box">
+                    <div class="boxInner">
+                        <img src="{{image_item.image.url}}" class="img-responsive">
+                        <div class="titleBox" style="font-family: 'Cabin Sketch', cursive">{{image_item.name|upper}}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %} {% else %}
+            <div class="wrap">
+                <h1 class="text-center">No images found with that search criteria </h1>
+            </div>
+            {% endif %}
         </div>
-        {% endfor %} {% endif %}
-    </div>
+
+    </section>
 </div>
+
 {% endblock %}

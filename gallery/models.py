@@ -21,7 +21,7 @@ class tags(models.Model):
         return self.name
 
 class Gallery(models.Model):
-    image = models.ImageField(upload_to = 'photos/', null = True)
+    image = models.ImageField(upload_to = 'images/', null = True)
     name = models.CharField(max_length=30)
     descripton = models.TextField()
     tags = models.ManyToManyField(tags)
@@ -35,7 +35,7 @@ class Gallery(models.Model):
         self.delete()
 
     @classmethod
-    def search_by_tags(cls,search_term):
-        gallery = cls.object.filter(tags__icontains=search_term)
+    def search_by_title(cls,search_term):
+        gallery = cls.object.filter(title__icontains=search_term)
 
         return gallery

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="product">
+    <div class="left-img2"><img src="{{image.image.url}}" alt="" /></div>
+    <div class="right-content">
+        <div class="content-arrow"></div>
+        <div class="content-container">
+            <h2 style="font-family: 'Cabin Sketch', cursive;">{{image.name|upper}}</h2>
+            <div class="bot-view">
+                <div class="date" style="color:white; font-family: 'Concert One', cursive;">
+                    {{image.time_uloaded}} / <span class="under">{{image.location}}</span>
+                </div>
+                <hr class="line" />
+                <div class="info" style="font-family: 'Arima Madurai', cursive; color:white">
+                    <div>
+                        <span>{{image.descripton}}</span>
+                    </div>
+                    <hr class="line" />
+                    <div class="footer">
+                        <div id="buttons">
+                            <a href="#" class="btn btn-default btn-block">Copy Image link  &nbsp<i class="glyphicon glyphicon-paperclip"></i>
+  </a></div>
+                        <p>{{image.categories.}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

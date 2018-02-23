@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Gallery, categories, tags
+from .models import Gallery, categories, location
 # Register your models here.
 
 class ArticlesAdmin(admin.ModelAdmin):
@@ -8,4 +8,4 @@ class ArticlesAdmin(admin.ModelAdmin):
     
 admin.site.register(Gallery)
 admin.site.register(categories)
-admin.site.register(tags)
+admin.site.register(location)

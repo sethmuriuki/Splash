@@ -1,18 +1,19 @@
 {% extends 'base.html' %} {% block content %}
-<section class="no-touch">
-    <div class="container"> </div>
-    <div class="wrap">
-        {% for image_item in images %}
-        <a href="{% url 'myimage' image_item.id %}">
-            <div class="box">
-                <div class="boxInner">
+<div class="uk-section uk-section-default">
+    <div class="uk-container uk-container-expand">
+        <div class="uk-child-width-1-3@s uk-grid-match .uk-margin-auto" uk-grid>
+            {% for image_item in images %}
+            <a href="{% url 'myimage' image_item.id %}">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
                     <img src="{{ image_item.image.url }}" class="img-responsive">
-                    <div class="titleBox">{{image_item.name}}</div>
+                    <div class="uk-text-center uk-card-body uk-text-large ">
+                        <p style="font-family: 'Permanent Marker', cursive;">{{image_item.name}}</p>
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
 
+        </div>
     </div>
-    </div>
-</section>
+</div>
+
 {% endblock %}

@@ -1,30 +1,39 @@
 {% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="product">
-    <div class="left-img2"><img src="{{image.image.url}}" alt="" /></div>
-    <div class="right-content">
-        <div class="content-arrow"></div>
-        <div class="content-container">
-            <h2 style="font-family: 'Cabin Sketch', cursive;">{{image.name|upper}}</h2>
-            <div class="bot-view">
-                <div class="date" style="color:white; font-family: 'Concert One', cursive;">
-                    {{image.time_uloaded}} / <span class="under">{{image.location}}</span>
-                </div>
-                <hr class="line" />
-                <div class="info" style="font-family: 'Arima Madurai', cursive; color:white">
-                    <div>
-                        <span>{{image.descripton}}</span>
-                    </div>
-                    <hr class="line" />
-                    <div class="footer">
-                        <div id="buttons">
-                            <a href="#" class="btn btn-default btn-block">Copy Image link  &nbsp<i class="glyphicon glyphicon-paperclip"></i>
-  </a></div>
-                        <p>{{image.categories.}}</p>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Glegoo" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+            <img src="{{image.image.url}}" alt="" uk-cover>
+            <canvas width="900" height="500"></canvas>
+        </div>
+        <div>
+            <div class="uk-card-body uk-card-secondary">
+                <div class="uk-text-center uk-card-body uk-text-large ">
+                    <h3 class="uk-card-title" style="font-family: 'Boogaloo', cursive;">{{image.name|upper}}</h3>
+                    <p style="font-family: 'Boogaloo', cursive;">{{image.time_uloaded}}/{{image.location}}</p>
+                    <hr>
+                    <p style="font-family: 'Boogaloo', cursive;">{{image.descripton}}</p>
+                    <hr>
+                    <a class="uk-button uk-button-default" href="#">Image Link</a>
+                    <hr>
+                    <p>{{image.categories.}}</p>
                 </div>
             </div>
         </div>
     </div>
 
+
     {% endblock %}
+</body>
+
+</html>

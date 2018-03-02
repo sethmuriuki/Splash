@@ -41,7 +41,7 @@ class Gallery(models.Model):
         self.delete()
 
     @classmethod
-    def search_by_title(cls,search_term):
-        gallery = cls.object.filter(title__icontains=search_term)
+    def search_by_category(cls,search_term):
+        gallery = cls.objects.filter(category__name__icontains=search_term)
 
         return gallery

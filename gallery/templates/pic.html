@@ -11,6 +11,15 @@
 </head>
 
 <body>
+    <script>
+        function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            document.execCommand("Copy");
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
     <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
         <div class="uk-card-media-left uk-cover-container">
             <img src="{{image.image.url}}" alt="" uk-cover>
@@ -24,7 +33,9 @@
                     <hr>
                     <p style="font-family: 'Boogaloo', cursive;">{{image.descripton}}</p>
                     <hr>
-                    <a class="uk-button uk-button-default" href="#">Image Link</a>
+
+                    <input class="form-control" type="text" value="{{image.image}}" id="myInput">
+                    <a onclick="myFunction()" class="uk-button uk-button-default">Image Link</a>
                     <hr>
                     <p>{{image.categories.}}</p>
                 </div>
